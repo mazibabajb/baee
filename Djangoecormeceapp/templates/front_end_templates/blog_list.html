@@ -1,0 +1,79 @@
+{% extends 'front_end_templates/base.html' %}
+{% load static %}
+{% block content %}
+<div class="page-heading">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="page-title">
+            <h2>Blog</h2>
+          </div>
+        </div>
+        <!--col-xs-12--> 
+      </div>
+      <!--row--> 
+    </div>
+    <!--container--> 
+  </div>
+  <!-- BEGIN Main Container -->
+  <div class="main-container col2-right-layout">
+    <div class="main container">
+      {% include 'front_end_templates/blog_sidebar.html' %}
+          
+        <div class="col-main col-sm-9 main-blog">
+          <div id="main" class="blog-wrapper">
+            <div id="primary" class="site-content">
+              <div id="content" role="main">
+                {% for post in  posts %}
+                <article id="post-29" class="blog_entry clearfix wow bounceInUp animated animated animated" style="visibility: visible;">
+                 
+                  <div class="entry-content">
+                    <div class="featured-thumb"><a href="#"><img src="/media/{{ post.blog_img }}" alt="blog-img3"></a></div>
+                     <header class="blog_entry-header clearfix">
+                    <div class="blog_entry-header-inner">
+                      <h2 class="blog_entry-title"> <a href="blog-detail.html" rel="bookmark">{{ post.title }}</a> </h2>
+                      
+                    </div>
+                    <!--blog_entry-header-inner--> 
+                  </header>
+                    <div class="entry-content">
+                    <ul class="post-meta">
+                            <li><i class="fa fa-user"></i>posted by {{ post.author}}</a> </li>
+                            <li><i class="fa fa-clock-o"></i><span class="day">12</span> <span class="month">Feb</span></li>
+                          </ul>
+                      <p>Fusce ac pharetra urna. Duis non lacus sit amet lacus interdum facilisis sed non est. Ut mi metus, semper eu dictum nec, condimentum sed sapien. Nullam lobortis nunc semper ipsum luctus ut viverra ante eleifend. Nunc pretium velit sed augue luctus accumsan. Integer vitae diam sed dolor euismod laoreet eget ac felis. Donec non erat sed elit bibendum sodales.</p>
+                    </div>
+                  <div class="thm-readmore"><a href="{% url 'blog_detail'  post.id %}" class="btn">READ MORE</a></div>
+                  </div>
+                </article>  
+                {% empty %}
+							<h4>There are no results</h4> 
+                {% endfor %}        
+              </div>
+            </div>
+            <div class="pager">
+              <div class="pages"> 
+                <!--<strong></strong>-->
+                <ol class="pagination">
+                  
+                  {% for i in paginator.page_range %}
+                  <li><a href="{%  url 'blog_list' %}?filter={{ filter }}& orderby = {{ orderby }}&page={{ i }}">{{i }}</a></li>
+                  {% endfor %}
+                 
+                </ol>
+              </div>
+            </div>
+          </div>
+          <!--#main wrapper grid_8--> 
+          
+        </div>
+        <!--col-main col-sm-9--> 
+      </div>
+    </div>
+    <!--main-container--> 
+    
+  </div>
+</div>
+  <!--col2-layout-->
+
+    {%  endblock %} 

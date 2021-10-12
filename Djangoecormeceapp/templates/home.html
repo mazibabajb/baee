@@ -1,0 +1,31 @@
+{% extends 'merchant_templates/merchant_base.html' %}
+{% load static %}
+
+
+
+<!--BLOCK FOR PAGE CONTENT-->
+{% block page_content %}
+{% include 'admintemplates/admin_sidebar.html' with id=form.instance.id %}
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h1>TRADEBAY  ADMIN DASHBOARD</h1>
+    </div>
+
+<p>Simple</p>
+</section>
+</div>
+{% endblock page_content %}
+<!--ENDBLOCK FOR PAGE CONTENT-->
+
+
+
+<!--BLOCK FOR CUSTOM JS -->
+{% block custom_js %} 
+
+
+{% endblock custom_js %}
+<!--ENDBLOCK FOR CUSTOM JS-->
+
+
+

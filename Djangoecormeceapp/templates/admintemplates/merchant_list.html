@@ -1,0 +1,113 @@
+{% extends 'merchant_templates/merchant_base.html' %}
+{% load static %}
+
+
+
+
+
+<!--BLOCK FOR PAGE CONTENT-->
+{% block page_content %}
+{% include 'admintemplates/admin_sidebar.html' with id=form.instance.id %}
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h1>TRADEBAY MERCHANT LIST</h1>
+    </div>
+<div class="row">
+    <div class="col-lg-12">
+      <div class="search-element">
+        <div class="card">  
+          <div  class="card-boby">
+            <form method="get">
+            <button class="btn btn-primary" type="submit" style="float: right;"><i class="fas fa-search"></i>Search</button>
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250" style="width: 250px;float: right" name ="filter" value="{{filter}}" >
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="search-element">
+          <div class="card">  
+            <div  class="card-boby">
+              <b>sort by :</b>
+              <a href="{% url 'category_list' %}?filter={{ filter }}&orderby=id">ID </a>  |
+              <a href="{% url 'category_list' %}?filter={{ filter }}&orderby=title"> IITLE</a>  |
+              <a href="{% url 'category_list' %}?filter={{ filter }}&orderby=description">Description </a>  |
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+<div class="row">
+{%  for merchantuser in merchantuser_list %}
+    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+        <article class="article article-style-b">
+          <div class="article-header">
+            <div class="article-image" data-background="{{ merchantuser.profile_pic }}" style="background-image: url(&quot;assets/img/news/img13.jpg&quot;);">
+            </div>
+            <div class="article-badge">
+              <div class="article-badge-item bg-danger"><i class="fas fa-fire"></i> {{ merchantuser.auth_user_id.username }}</div>
+            </div>
+          </div>
+          <div class="article-details">
+            
+            <p>{{ category.description }} </p>
+            <p class="no-margin"><span class="badge badge-warning"><i class="fas fa-user-circle" ></i>Name :  {{ merchantuser.auth_user_id.first_name }} </span></p>
+            <p class="no-margin"><span class="badge badge-info"><i class="fas fa-envelope-o" ></i>Email :  {{ merchantuser.auth_user_id.email }} </span> </p>
+            <p class="no-margin"><span class="badge badge-primary"><i class="fas fa-file-o" ></i>Gst :  {{ merchantuser.gst_details }} </span> </p>
+            <p class="no-margin"><span class="badge badge-success"><i class="fas fa-building" ></i>Company :  {{ merchantuser.company_name }} </span> </p>
+            <p class="no-margin"><span class="badge badge-primary"><i class="fas fa-map-maker" ></i>Address :  {{ merchantuser.address }} </span> </p>
+            <p class="no-margin"><span class="badge badge-primary"><i class="fas fa-lock" ></i>Added By Admin :  {{ merchantuser.is_added_by_admin }} </span> </p>
+            <div class="article-cta">
+                <label class="custom-switch mt-2" style="float: left;">
+                    <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" {% if merchantuser.auth_user_id.is_active == 1 %} checked {% endif %}>
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">ACTIVE</span>
+                  </label>
+            <a href="{% url 'merchant_update' merchantuser.auth_user_id.id %}" class="btn btn-warning">EDIT <i class="fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    {%  endfor %}
+</div>
+<div class="row"> 
+    <div class="card-body">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          {% if page_obj.has_previous %}
+          <li class="page-item"><a class="page-link" href="{%  url 'merchant_list' %}?&filter={{ filter }}&orderby={{ orderby }}&page={{ page_obj.previous_page_number}}">Previous</a></li>
+          {% else %}
+          <li class="page-item disabled"><a class="page-link" href="{%  url 'merchant_list' %}">Previous</a></li>
+          {% endif %}
+          {% for i in paginator.page_range %}
+          <li class="page-item"><a class="page-link" href="{%  url 'merchant_list' %}?filter={{ filter }}& orderby = {{ orderby }}&page={{ i }}">{{i }}</a></li>
+          {% endfor %}
+          {% if page_obj.has_next %}
+          <li class="page-item"><a class="page-link" href="{%  url 'merchant_list' %}?&filter={{ filter }}&orderby={{ orderby }}&page={{ page_obj.next_page_number}}">next</a></li>
+          {% else %}
+          <li class="page-item disabled"><a class="page-link" href="{%  url 'merchant_list' %}">Previous</a></li>
+          {% endif %}
+          
+          
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+</section>
+</div>
+{% endblock page_content %}
+<!--ENDBLOCK FOR PAGE CONTENT-->
+
+
+
+<!--BLOCK FOR CUSTOM JS -->
+{% block custom_js %} 
+
+
+{% endblock custom_js %}
+<!--ENDBLOCK FOR CUSTOM JS-->

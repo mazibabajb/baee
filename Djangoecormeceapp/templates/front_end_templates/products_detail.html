@@ -1,0 +1,346 @@
+{% extends 'front_end_templates/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="page-heading">
+    <div class="breadcrumbs">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+          </div>
+          <!--col-xs-12--> 
+        </div>
+        <!--row--> 
+      </div> 
+      <!--container--> 
+    </div>
+    <div class="page-title">
+      <h2>PRODUCT Detail</h2>
+    </div>
+  </div>
+  <!-- BEGIN Main Container -->
+  <div class="main-container col1-layout wow bounceInUp animated">
+    <div class="request-call"><a href="#" onClick="ShowMe1();"><i class="fa fa-money"></i> BACK TO PRODUCT LIST</a></div>
+    <div class="main">
+      <div class="col-main"> 
+        <!-- Endif Next Previous Product -->
+        <div class="product-view wow bounceInUp animated" itemscope="" itemtype="http://schema.org/Product" itemid="#product_base">
+          <div id="messages_product_view"></div>
+          <!--product-next-prev-->
+          <div class="product-essential container">
+            <div class="row">
+              <form action="#" method="post" id="product_addtocart_form">
+                <!--End For version 1, 2, 6 --> 
+                <!-- For version 3 -->
+                <div class="product-img-box col-lg-5 col-sm-5 col-xs-12">
+                  <div class="new-label new-top-left">Hot</div>
+                  <div class="sale-label sale-top-left">-15%</div>
+                  <div class="product-image">
+                    <div class="product-full"> <img id="product-zoom1" src="{{ products.product_img.url }}"  alt="product-image"/> </div>
+                    <div class="more-views">
+                      <div class="slider-items-products">
+                        <div id="gallery_02" class="product-flexslider hidden-buttons product-img-thumb">
+                          <div class="slider-items slider-width-col4 block-content">
+                            {% for pi in products.product_images_set.all %}
+                           <div class="more-views-items p-3"class="col-md-4" > 
+                            <img class="thumbnail" id="product-zoom0"  src="{{ pi.product_img.url }}" class="img-fluid" style="height: 100px; object-fit: contain;" alt="product-image"/> 
+                            </a>
+                            </div>
+                            {% endfor %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end: more-images --> 
+                   <div class="toll-free"><a href="#"><i class="fa fa-phone"></i>0774098842</a></div>
+                </div>
+                <!--End For version 1,2,6--> 
+                <!-- For version 3 -->
+                <div class="product-shop col-lg- col-sm-7 col-xs-12">
+                  <div class="brand">{{ products.brand }}</div>
+                  <div class="product-name">
+                    <h1>{{ products.product_name}}</h1>
+                  </div>
+                  <div class="ratings">
+                    <div class="rating-box">
+                      <div style="width:60%" class="rating"></div>
+                    </div>
+                    <p class="rating-links"> <a href="#">1 Review</a> <span class="separator">|</span> <a href="#">Add Your Review</a> </p>
+                  </div>
+                  <div class="price-block">
+                    <div class="price-box">
+                     
+                      <p class="special-price"> <span class="price-label">Special Price</span> <span id="product-price-48" class="price">${{ products.price}}</span> </p><br>
+                      <form action="{%  url 'cart:cart_add' products.id %}" method="post">
+                        {{ cart_product_form }}
+
+                       {% csrf_token %}
+                       <input type="submit" value="add to cart">
+                      </form>
+                    </div>
+                  </div>
+                 
+                  <div class="spec-row" id="summarySpecs">
+                  <h2>Product Specifications</h2>
+                    <table width="100%">
+                      <tbody>
+                        <tr>
+                          <td class="label-spec"> Name <span class="coln">:</span></td>
+                          <td class="value-spec"> {{ products.product_name}} </td>
+                        </tr>
+                        <tr>
+                          <td class="label-spec">  Price <span class="coln">:</span></td>
+                          <td class="value-spec"> {{ products.product_name}} </td>
+                        </tr>
+                        <tr class="odd">
+                          <td class="label-spec"> Brand <span class="coln">:</span></td>
+                          <td class="value-spec"> {{ products.product_name}} </td>
+                        </tr>
+                        <tr class="odd">
+                          <td class="label-spec"> Size <span class="coln">:</span></td>
+                          <td class="value-spec"> {{ products.product_name}} </td>
+                        </tr>
+                        <tr>
+                          <td class="label-spec"> Coulor <span class="coln">:</span></td>
+                          <td class="value-spec"> {{ products.product_name}} </td>
+                        </tr>
+                        <tr>
+                          <td class="label-spec"> Material <span class="coln">:</span></td>
+                          <td class="value-spec"> {{ products.product_name}} </td>
+                        </tr>
+                        <tr class="odd">
+                          <td class="label-spec"> In stock <span class="coln">:</span></td>
+                          <td class="value-spec"> {{ products.product_name}} </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="email-addto-box">
+                    <ul class="add-to-links">
+                      
+                  </div>
+                  <div class="social">
+                    <ul class="link">
+                      <li class="fb"><a href="#"></a></li>
+                      <li class="tw"><a href="#"></a></li>
+                      <li class="googleplus"><a href="#"></a></li>
+                      <li class="rss"><a href="#"></a></li>
+                      <li class="pintrest"><a href="#"></a></li>
+                      <li class="linkedin"><a href="#"></a></li>
+                      <li class="youtube"><a href="#"></a></li>
+                    </ul>
+                  </div>
+                  <ul class="shipping-pro">
+                    
+                  </ul>
+                </div>
+                <!--product-shop--> 
+                <!--Detail page static block for version 3-->
+              </form>
+            </div>
+          </div>
+          <!--product-essential-->
+          <div class="product-collateral container">
+            <ul id="product-detail-tab" class="nav nav-tabs product-tabs">
+              <li class="active"> <a href="#product_tabs_description" data-toggle="tab"> Product Overview </a> </li>
+              <li><a href="#product_tabs_tags" data-toggle="tab">Product  Specification</a></li>
+               <li> <a href="#reviews_tabs" data-toggle="tab">Reviews</a> </li>
+            </ul>
+            <div id="productTabContent" class="tab-content">
+              <div class="tab-pane fade in active" id="product_tabs_description">
+                <div class="std">
+                  <p>{{ products.product_Long_description}}.</p>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="product_tabs_tags">
+                <div class="spec-row" id="summarySpecs">
+                    <table width="100%">
+                      <tbody>
+                        <tr>
+                          <td class="label-spec"> Name <span class="coln">:</span></td>
+                          <td class="value-spec"> {{ products.product_name}} </td>
+                        </tr>
+                        <tr>
+                          <td class="label-spec">  Price <span class="coln">:</span></td>
+                          <td class="value-spec"> {{ products.product_name}} </td>
+                        </tr>
+                        <tr class="odd">
+                          <td class="label-spec"> Brand <span class="coln">:</span></td>
+                          <td class="value-spec"> {{ products.product_name}} </td>
+                        </tr>
+                        <tr class="odd">
+                          <td class="label-spec"> Size <span class="coln">:</span></td>
+                          <td class="value-spec"> {{ products.product_name}} </td>
+                        </tr>
+                        <tr>
+                          <td class="label-spec"> Coulor <span class="coln">:</span></td>
+                          <td class="value-spec"> {{ products.product_name}} </td>
+                        </tr>
+                        <tr>
+                          <td class="label-spec"> Material <span class="coln">:</span></td>
+                          <td class="value-spec"> {{ products.product_name}} </td>
+                        </tr>
+                        <tr class="odd">
+                          <td class="label-spec"> In stock <span class="coln">:</span></td>
+                          <td class="value-spec"> {{ products.product_name}} </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+              <div class="tab-pane fade" id="reviews_tabs">
+                <div class="woocommerce-Reviews">
+                  <div>
+                    <h2 class="woocommerce-Reviews-title">2 reviews for <span>Bacca Bucci Men's Running Shoes</span></h2>
+                    <ol class="commentlist">
+                      <li class="comment">
+                        <div> <img alt="" src="images/member1.png" class="avatar avatar-60 photo">
+                          <div class="comment-text">
+                            <div class="ratings">
+                              <div class="rating-box">
+                                <div style="width:100%" class="rating"></div>
+                              </div>
+                            </div>
+                            <p class="meta"> <strong>John Doe</strong> <span>–</span> April 19, 2018 </p>
+                            <div class="description">
+                              <p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Donec rutrum congue leo eget malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <p>Donec sollicitudin molestie malesuada. Vivamus suscipit tortor eget felis porttitor volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lorem ut libero malesuada feugiat. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <!-- #comment-## -->
+                      <li class="comment">
+                        <div> <img alt="" src="{% static '/front_end_css/images/member2.png' %}" class="avatar avatar-60 photo">
+                          <div class="comment-text">
+                            <div class="ratings">
+                              <div class="rating-box">
+                                <div style="width:100%" class="rating"></div>
+                              </div>
+                            </div>
+                            <p class="meta"> <strong>Stephen Smith</strong> <span>–</span> June 02, 2018 </p>
+                            <div class="description">
+                              <p>Donec rutrum congue leo eget malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <!-- #comment-## -->
+                    </ol>
+                  </div>
+                  <div>
+                    <div>
+                      <div class="comment-respond"> <span class="comment-reply-title">Add a review </span>
+                        {% if messages %}
+                          <ul class="messages">
+                         {% for message in messages %}
+                        <div class="alert alert-{{message.tags}}" role="alert">{{ message }}</div>
+                         {% endfor %}
+                        </ul>
+                       {% endif %}
+                        <form action="/addcomment/{{ products.id }}" method="post" class="comment-form" novalidate>
+                          {% csrf_token %}
+                          <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p>
+                          <div class="comment-form-rating">
+                            <label id="rating">Your rating</label>
+                            <p class="stars"> <span> <a class="star-1" href="#">1</a> <a class="star-2" href="#">2</a> <a class="star-3" href="#">3</a> <a class="star-4" href="#">4</a> <a class="star-5" href="#">5</a> </span> </p>
+                          </div>
+                          <p class="comment-form-comment">
+                            <label>Your review <span class="required">*</span></label>
+                            <textarea id="review_comment " name="review_comment" cols="45" rows="8" placeholder="review_comment"  required></textarea>
+                          </p>
+                          
+                          <p class="form-submit">
+                            {% if user.id is not none %}
+                            <input  type="submit"  class="submit" value="Submit">
+                            {% else %}
+                            <p  style="color: red;"> You must be looged in to send reviews</p> 
+                            {% endif %}
+                          </p>
+                        </form>
+                      </div>
+                      <!-- #respond --> 
+                    </div>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!--product-collateral-->
+          <div class="box-additional"> 
+            <!-- BEGIN RELATED PRODUCTS -->
+            <div class="related-pro container">
+              <div class="slider-items-products">
+                <div class="new_title center">
+                  <h2>Related Products</h2>
+                </div>
+                <div id="related-slider" class="product-flexslider hidden-buttons">
+                  <div class="slider-items slider-width-col4 products-grid">
+                  {% for products in related_products %}
+                    <div class="item">
+                      <div class="item-inner">
+                        <div class="item-img">
+                          <div class="item-img-info"><a href="{% url 'product_detail' products.id %}" title="Retis lapen casen" class="product-image"><img src="{{ products.product_img.url}}" alt="Retis lapen casen"></a>
+                            <div class="new-label new-top-left">Used</div>
+                            <div class="sale-label sale-top-left">-15%</div>
+                            <div class="item-box-hover">
+                              <div class="box-inner">
+                                <div class="add_cart">
+                                  <button class="button btn-cart" type="button"></button>
+                                </div>
+                                <div class="product-detail-bnt"><a class="button detail-bnt"><span>Quick View</span></a></div>
+                                <div class="actions"><span class="add-to-links"><a href="#" class="link-wishlist" title="Add to Wishlist"><span>Add to Wishlist</span></a> </span> </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item-info">
+                          <div class="info-inner">
+                            <div class="item-title"><a href="{% url 'product_detail' products.id %}" title="Retis lapen casen">{{ products.product_name }}</a> </div>
+                            <div class="item-content">
+                              <div class="rating">
+                                <div class="ratings">
+                                  <div class="rating-box">
+                                    <div class="rating" style="width:80%"></div>
+                                  </div>
+                                  <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
+                                </div>
+                              </div>
+                              <div class="item-price">
+                                <div class="price-box"><span class="regular-price"><span class="price">${{ products.price}}</span> </span> </div>
+                              </div>
+                              <div class="other-info">
+                                <div class="col-km"><i class="fa fa-tachometer"></i> 4875km</div>
+                                <div class="col-engine"><i class="fa fa-gear"></i> Automatic</div>
+                                <div class="col-date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor  %}
+                    <!-- End Item --> 
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end related product --> 
+            
+          </div>
+          <!-- end related product --> 
+        </div>
+        <!--box-additional--> 
+        <!--product-view--> 
+      </div>
+    </div>
+    <!--col-main--> 
+  </div>
+  <!--main-container--> 
+</div>
+<!--col1-layout--> 
+
+<!-- For version 1,2,3,4,6 -->
+{%  endblock %}

@@ -1,0 +1,487 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>{{ title }}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Default Description">
+<meta name="keywords" content="fashion, store, E-commerce">
+<meta name="robots" content="*">
+<link rel="icon" href="#" type="image/x-icon">
+<link rel="shortcut icon" href="#" type="image/x-icon">
+
+<!-- CSS Style -->
+<link rel="stylesheet" type="text/css" href="{% static '/front_end_css/stylesheet/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static '/front_end_css/stylesheet/font-awesome.css' %}" media="all">
+<link rel="stylesheet" type="text/css" href="{% static '/front_end_css/stylesheet/bootstrap-select.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static '/front_end_css/stylesheet/revslider.css' %}" >
+<link rel="stylesheet" type="text/css" href="{% static '/front_end_css/stylesheet/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static '/front_end_css/stylesheet/owl.theme.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static '/front_end_css/stylesheet/jquery.bxslider.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static '/front_end_css/stylesheet/jquery.mobile-menu.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static '/front_end_css/stylesheet/style.css' %}" media="all">
+<link rel="stylesheet" type="text/css" href="{% static '/front_end_css/stylesheet/responsive.css' %}" media="all">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700,800' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Teko:300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Saira+Condensed:300,400,500,600,700,800" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-558G0Q841F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-558G0Q841F');
+</script>
+</head>
+<body>
+<div id="page">
+  <header>
+    <div class="container">
+      <div class="row">
+        <div id="header">
+          <div class="header-container">
+            <div class="header-logo"> <a href="{% url 'home' %}" title="Car HTML" class="logo">
+         <link rel="stylesheet" type="text/css" href="{% static '/front_end_css/stylesheet/owl.carousel.css' %}">
+              <div><img src="{% static '/front_end_css/images/logo.jpeg' %}" alt="Car Store"></div>
+              </a> </div>
+            <div class="header__nav">
+              <div class="header-banner">
+                <div class="col-lg-6 col-xs-12 col-sm-6 col-md-6">
+                  <div class="assetBlock">
+                    <div style="height: 20px; overflow: hidden;" id="slideshow">
+                      <p style="display: block;">Hot days! - <span>50%</span> Get ready for summer! </p>
+                      <p style="display: none;">Save up to <span>40%</span> Hurry limited offer!</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-lg-6 col-lg-6 col-xs-12 col-sm-6 col-md-6 call-us">{% if request.user.is_authenticated %}<i class="fa fa-clock-o"></i> {{ user }}  {% endif %}<i class="fa fa-phone"></i> +263 774098842</div>
+               
+              </div>
+              <div class="fl-header-right">
+                <div class="fl-links">
+                  <div class="no-js"> <a title="" class="clicker"></a>
+                    <div class="fl-nav-links">
+                      <div class="language-currency">
+                        <!--fl-language--> 
+                        <!-- END For version 1,2,3,4,6 --> 
+                        <!-- For version 1,2,3,4,6 -->
+                        <div class="fl-currency">
+                         <h3>Currency</h3>
+                          <ul class="currencies_list">
+                            <li><a href="#" title="EGP"> <strong>zw</strong>   Zw RTGS</a></li>
+                            <li><a href="#" title="EUR"> <strong>ZAR</strong>   ZAR</a></li>
+                            <li><a href="#" title="USD"> <strong>USD</strong>   US Dollar</a></li>
+                          </ul>
+                        </div>
+                        <!--fl-currency--> 
+                        <!-- END For version 1,2,3,4,6 --> 
+                      </div>
+                       <h3>My Acount</h3>
+                      <ul class="links">
+                        <li><a href="{%  url 'admin_login' %}" title="My Account">Login</a></li>
+                        <li><a href="login.html" title="Wishlist">Register</a></li>
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="fl-cart-contain">
+                  <div class="mini-cart">
+                    <div class="basket"> <a href="shopping-cart.html"><span> 2 </span></a> </div>
+                    <div class="fl-mini-cart-content" style="display: none;">
+                      <div class="block-subtitle">
+                        <div class="top-subtotal">2 items, <span class="price">$259.99</span> </div>
+                        <!--top-subtotal--> 
+                        <!--pull-right--> 
+                      </div>
+                      <!--block-subtitle-->
+                      <ul class="mini-products-list" id="cart-sidebar">
+                        <li class="item first">
+                          <div class="item-inner"><a class="product-image" title="timi &amp; leslie Sophia Diaper Bag, Lemon Yellow/Shadow White" href="#l"><img alt="timi &amp; leslie Sophia Diaper Bag, Lemon Yellow/Shadow White" src="products-images/p4.jpg"></a>
+                            <div class="product-details">
+                              <div class="access"><a class="btn-remove1" title="Remove This Item" href="#">Remove</a> <a class="btn-edit" title="Edit item" href="#"><i class="icon-pencil"></i><span class="hidden">Edit item</span></a> </div>
+                              <!--access--> 
+                              <strong>1</strong> x <span class="price">$179.99</span>
+                              <p class="product-name"><a href="accessories-detail.html">timi &amp; leslie Sophia Diaper Bag...</a></p>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="item last">
+                          <div class="item-inner"><a class="product-image" title="JP Lizzy Satchel Designer Diaper Bag - Slate Citron" href="#"><img alt="JP Lizzy Satchel Designer Diaper Bag - Slate Citron" src="products-images/p3.jpg"></a>
+                            <div class="product-details">
+                              <div class="access"><a class="btn-remove1" title="Remove This Item" href="#">Remove</a> <a class="btn-edit" title="Edit item" href="#"><i class="icon-pencil"></i><span class="hidden">Edit item</span></a> </div>
+                              <!--access--> 
+                              <strong>1</strong> x <span class="price">$80.00</span>
+                              <p class="product-name"><a href="accessories-detail.html">JP Lizzy Satchel Designer Diaper Ba...</a></p>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                      <div class="actions">
+                        <button class="btn-checkout" title="Checkout" type="button" onClick="window.location=checkout.html"><span>Checkout</span></button>
+                      </div>
+                      <!--actions--> 
+                    </div>
+                    <!--fl-mini-cart-content--> 
+                  </div>
+                </div>
+                <!--mini-cart-->
+                <div class="collapse navbar-collapse">
+                  <form action="{% url 'searchbar' %}" method="get" class="navbar-form" role="search">
+                    <div class="input-group">
+                      <input type="text" class="form-control" name="search" placeholder="Search">
+                      <span class="input-group-btn">
+                      <button type="submit" class="search-btn"> <span class="glyphicon glyphicon-search"> <span class="sr-only">Search</span> </span> </button>
+                      </span> </div>
+                  </form>
+                </div>
+                <!--links--> 
+              </div>
+              <div class="fl-nav-menu">
+                <nav>
+                  <div class="mm-toggle-wrap">
+                    <div class="mm-toggle"><i class="fa fa-bars"></i><span class="mm-label">Menu</span> </div>
+                  </div>
+                  <div class="nav-inner"> 
+                    <!-- BEGIN NAV -->
+                    <ul id="nav" class="hidden-xs">
+                      <li class="active"> <a class="level-top" href="{%  url 'home' %}"><span>Home</span></a></li>
+                      <li class="level0 parent drop-menu"><a href="{% url 'product_list_view' %}"><span>All Categories</span> </a> 
+                        <!--sub sub category-->
+                       
+                      </li>
+                      <li class="level0 parent drop-menu"> <a class="level-top" href="{% url 'book_list'  %}"><span>Books</span></a>
+                      <li class="level0 parent drop-menu"> <a class="level-top" href="{% url 'blog_list'  %}"><span>Blog</span></a>
+                      </li>
+                      <li class="active"> <a class="level-top" href="{% url 'about_us' %}"><span>About Us</span></a></li>
+                      <li class="active"> <a class="level-top" href="{%  url 'contact_us' %}"><span>Contact Us</span></a></li>
+                    </ul>
+                    <!--nav--> 
+                  </div>
+                </nav>
+              </div>
+            </div>
+            
+            <!--row--> 
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!--container-->
+{% block content   %}
+
+
+
+{% endblock   %}
+
+
+  <footer> 
+    <!-- BEGIN INFORMATIVE FOOTER -->
+    <div class="footer-inner">
+      <div class="our-features-box wow bounceInUp animated animated">
+        <div class="container">
+
+        </div>
+      </div>
+      <div class="newsletter-row">
+        <div class="container">
+          <div class="row"> 
+            
+            <!-- Footer Newsletter -->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col1">
+              <div class="newsletter-wrap">
+                <h5>Newsletter</h5>
+                <h4>Get Notified Of any Updates!</h4>
+                {% if messages %}
+               {% for message in messages  %}
+               {% if message.tags == "success" %}
+                  <div class="alert alert-success">
+               {{message}}
+                 </div>
+                   {% endif %}
+                  {% if message.tags == "error" %}
+                 <div class="alert alert-danger">
+  {{ message}}
+                 </div>
+                 {% endif %}
+                {% endfor %}
+                  {% endif %}
+            <form action="{% url 'emailsubscription' %}" method="post" id="newsletter-validate-detail1">
+                  {%  csrf_token %}
+                  <div id="container_form_news">
+                    <div id="container_form_news2">
+                      <input type="text" name="email" id="newsletter1" title="Sign up for our newsletter" class="input-text required-entry validate-email" placeholder="Enter your email address">
+                      <button type="submit" title="Subscribe" class="button subscribe"><span>Subscribe</span></button>
+                    </div>
+                    <!--container_form_news2--> 
+                  </div>
+                  <!--container_form_news-->
+                </form>
+              </div>
+              <!--newsletter-wrap--> 
+            </div>
+          </div>
+        </div>
+        <!--footer-column-last--> 
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4 col-xs-12 col-lg-4">
+            <div class="co-info">
+              <h4>CONTACTS</h4>
+              <address>
+              <div><span>Headquaters Africa house 4yt floor <br>
+              fife street and 10th avenue bulawayo</span></div>
+              <div> <span> +263 7740 008842</span></div>
+              <div> <span><a href="#">info@tradebay.com</a></span></div>
+              <div> <span>Mon - Fri : 09am to 06pm</span></div>
+              </address>
+            </div>
+          </div>
+          <div class="col-sm-8 col-xs-12 col-lg-8">
+            <div class="footer-column">
+              <h4>Quick Links</h4>
+              <ul class="links">
+                <li class="first"><a title="How to buy" href="{% url 'blog_list' %}">Blog</a></li>
+                <li><a title="FAQs" href="{% url 'faqs' %}">FAQs</a></li>
+                <li><a title="Payment" href="{% url 'payments' %}">Payment</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h4>Style Advisor</h4>
+              <ul class="links">
+                <li class="first"><a title="Your Account" href="#">Your Account</a></li>
+               
+                <li><a title="Addresses" href="{% url 'merchant_home'  %}">become a supplier</a></li>
+                <li class="last"><a title=" Additional Information" href="{% url 'affilliate_home'  %}">Become an affilliate</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h4>Information</h4>
+              <ul class="links">
+                <li><a title="History" href="#">About Us</a></li>
+                <li><a title="History" href="#">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <!--col-sm-12 col-xs-12 col-lg-8--> 
+          <!--col-xs-12 col-lg-4--> 
+        </div>
+        <!--row--> 
+        
+      </div>
+      
+      <!--container--> 
+    </div>
+    <!--footer-inner-->
+    
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4">
+            <div class="social">
+              <ul>
+                <li class="fb"><a href="#"></a></li>
+                <li class="tw"><a href="#"></a></li>
+                <li class="googleplus"><a href="#"></a></li>
+                <li class="rss"><a href="#"></a></li>
+                <li class="pintrest"><a href="#"></a></li>
+                <li class="linkedin"><a href="#"></a></li>
+                <li class="youtube"><a href="#"></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-4 col-xs-12 coppyright"><a target="_blank" href="{% url 'home' %}">Tradebay From Gravity Capital 2021</a></div>
+          <div class="col-xs-12 col-sm-4">
+            <div class="payment-accept"> <img src="{% static '/front_end_css/images/payment-1.png' %}" alt=""> <img src="{% static '/front_end_css/images/payment-2.png' %}" alt=""> <img src="{% static '/front_end_css/images/payment-3.png' %}" alt=""> <img src="{% static '/front_end_css/images/payment-4.png' %}" alt=""> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- BEGIN SIMPLE FOOTER --> 
+  </footer>
+  <!-- End For version 1,2,3,4,6 --> 
+  
+</div>
+<!--page--> 
+<!-- Mobile Menu-->
+<div id="mobile-menu">
+  <ul>
+        <li>
+      <div class="mm-search">
+        <form id="search1" name="search" action="{%  url 'searchbar' %}">
+          <div class="input-group">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit"><i class="fa fa-search"></i> </button>
+            </div>
+            <input type="text" class="form-control simple" placeholder="Search ..." name="search" id="srch-term">
+          </div>
+        </form>
+      </div>
+    </li>
+     <li class="active"> <a class="level-top" href="#"><span>Home</span></a></li>
+    <li><a href="{% url 'product_list_view' %}">ALL CATEGORIES</a>
+      <!--mega menu-->
+                                <ul class="level0">
+                                  <li class="level3 nav-6-1 parent item"> <a href="{% url 'product_list_view' %}"><span>ALL CATEGORIES</span></a> 
+                                    <!--sub sub category-->
+                                    <ul class="level1">
+                                      {% for productCategory in productCategories %}
+                                      <li class="level2 nav-6-1-1"> <a href="{% url 'product_list_view' %}?productCategory={{ productCategory.title}}"><span>{{ productCategory.title}}</span></a> </li>
+                                      <!--level2 nav-6-1-1-->
+                                      {% endfor %}
+                                    </ul>
+                                    <!--level1--> 
+                                    <!--sub sub category--> 
+                                  </li>
+                                  <!--level3 nav-6-1 parent item-->
+                                 
+                                  <!--level3 nav-6-1 parent item-->
+                                </ul>
+                                <!--level0--> 
+    </li>
+    <li><a href="{% url 'book_list'  %}">Books</a></li>
+    <li><a href="{% url 'blog_list' %}">Blog</a></li>
+    <li><a href="{% url 'about_us' %}">About Us‎</a></li>
+    <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+   </ul>
+</div>
+
+
+
+<!-- JavaScript --> 
+<script type="text/javascript" src="{% static '/front_end_css/js/jquery.min.js' %}"></script> 
+<script type="text/javascript" src="{% static '/front_end_css/js/bootstrap.min.js' %}"></script> 
+<script src="{% static '/front_end_css/js/bootstrap-slider.min.js' %}"></script> 
+<script src="{% static '/front_end_css/js/bootstrap-select.min.js' %}"></script> 
+<script type="text/javascript" src="{% static '/front_end_css/js/parallax.js' %}"></script> 
+<script type="text/javascript" src="{% static '/front_end_css/js/revslider.js' %}"></script> 
+<script type="text/javascript" src="{% static '/front_end_css/js/common.js' %}"></script> 
+<script type="text/javascript" src="{% static '/front_end_css/js/jquery.bxslider.min.js' %}"></script> 
+<script type="text/javascript" src="{% static '/front_end_css/js/owl.carousel.min.js' %}"></script> 
+<script type="text/javascript" src="{% static '/front_end_css/js/jquery.mobile-menu.min.js' %}"></script> 
+<script src="{% static '/front_end_css/js/countdown.js' %}"></script> 
+<script>
+        jQuery(document).ready(function(){
+            jQuery('#rev_slider_4').show().revolution({
+                dottedOverlay: 'none',
+                delay: 5000,
+                startwidth: 1170,
+	            startheight:650,
+
+                hideThumbs: 200,
+                thumbWidth: 200,
+                thumbHeight: 50,
+                thumbAmount: 2,
+
+                navigationType: 'thumb',
+                navigationArrows: 'solo',
+                navigationStyle: 'round',
+
+                touchenabled: 'on',
+                onHoverStop: 'on',
+                
+                swipe_velocity: 0.7,
+                swipe_min_touches: 1,
+                swipe_max_touches: 1,
+                drag_block_vertical: false,
+            
+                spinner: 'spinner0',
+                keyboardNavigation: 'off',
+
+                navigationHAlign: 'center',
+                navigationVAlign: 'bottom',
+                navigationHOffset: 0,
+                navigationVOffset: 20,
+
+                soloArrowLeftHalign: 'left',
+                soloArrowLeftValign: 'center',
+                soloArrowLeftHOffset: 20,
+                soloArrowLeftVOffset: 0,
+
+                soloArrowRightHalign: 'right',
+                soloArrowRightValign: 'center',
+                soloArrowRightHOffset: 20,
+                soloArrowRightVOffset: 0,
+
+                shadow: 0,
+                fullWidth: 'on',
+                fullScreen: 'off',
+
+                stopLoop: 'off',
+                stopAfterLoops: -1,
+                stopAtSlide: -1,
+
+                shuffle: 'off',
+
+                autoHeight: 'off',
+                forceFullWidth: 'on',
+                fullScreenAlignForce: 'off',
+                minFullScreenHeight: 0,
+                hideNavDelayOnMobile: 1500,
+            
+                hideThumbsOnMobile: 'off',
+                hideBulletsOnMobile: 'off',
+                hideArrowsOnMobile: 'off',
+                hideThumbsUnderResolution: 0,
+
+                hideSliderAtLimit: 0,
+                hideCaptionAtLimit: 0,
+                hideAllCaptionAtLilmit: 0,
+                startWithSlide: 0,
+                fullScreenOffsetContainer: ''
+            });
+        });
+        </script> 
+<script type="text/javascript">
+    function HideMe()
+    {
+        jQuery('.popup1').hide();
+        jQuery('#fade').hide();
+    }
+</script> 
+<script>
+      var dthen1 = new Date("12/25/17 11:59:00 PM");
+      start = "08/04/15 03:02:11 AM";
+      start_date = Date.parse(start);
+      var dnow1 = new Date(start_date);
+      if (CountStepper > 0)
+      ddiff = new Date((dnow1) - (dthen1));
+      else
+      ddiff = new Date((dthen1) - (dnow1));
+      gsecs1 = Math.floor(ddiff.valueOf() / 1000);
+      
+      var iid1 = "countbox_1";
+      CountBack_slider(gsecs1, "countbox_1", 1);
+    </script>
+    
+      <script type="text/javascript">
+
+        let thumbnails = document.getElementsByClassName ('thumbnail')
+        let activeImages = document.getElementsByClassName ('active')
+      
+        for (var i=0; i <thumbnails.length; i++){
+      
+          thumbnails[i].addEventListener('mouseover',  function(){
+            
+      
+            if (activeImages.length > 0){
+               activeImages[0].classList.remove('active')
+            }
+      
+            this.classList.add('active')
+            document.getElementById('product-zoom1').src = this.src
+          })
+      
+        }
+      
+      </script>
+    
+</body>
+
+</html>

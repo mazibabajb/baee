@@ -1,0 +1,365 @@
+{% extends 'merchant_templates/merchant_base.html' %}
+{% load static %}
+
+
+{% block custom_css %}
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css  "/>
+<link rel="stylesheet" href="//bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
+<style>
+.bootstrap-tagsinput  {
+    width: 100%;
+}
+</style>
+{% endblock custom_css %}
+
+<!--BLOCK FOR PAGE CONTENT-->
+{% block page_content %}
+{% include 'admintemplates/admin_sidebar.html' with id=form.instance.id %}
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h1>TRADEBAY PRODUCT CREATE </h1>
+    </div>
+<div class="row">
+  <div class="col-lg-12">
+      <div class="card"> 
+        <form action="" id="myform"> 
+            {% csrf_token %}
+          <div class="body-boby">
+              <h5>Product basic details</h5>
+              <hr>
+              <div class="row">
+                  <div class="col-lg-6">
+                      <label >Product Name</label>
+                      <input class="form-control" name="product_name" placeholder="Product Name" id="title">
+                  </div>
+                  <div class="col-lg-6">
+                    <label >Brand Name</label>
+                    <input class="form-control" name="brand" placeholder="Brand Name">
+                  </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-lg-6">
+                    <label >Url  Slug</label>
+                    <input class="form-control" name="url_slug" placeholder="url_slug" id="url_slug">
+                </div>
+                <div class="col-lg-6">
+                  <label >Category</label>
+                  <select name="sub_category" class="form-control">
+                  {% for category in categories %}
+                    <optgroup label={{category.category.title}} >
+                      {% for sub_cat in category.sub_category   %}
+                      <option>{{sub_cat.title}}</option>
+                      {% endfor %}
+                    </optgroup>
+                  {% endfor %}
+                </select>
+                </div>
+                
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-6">
+                    <label >product_max_price</label>
+                    <input class="form-control" name="product_max_price" placeholder="product_max_price">
+                </div>
+                <div class="col-lg-6">
+                  <label >product_discount_price</label>
+                  <input class="form-control" name="product_discount_price" placeholder="product_discount_price">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-12">
+                    <label >Product Descreption</label>
+                    <textarea class="form-control" name="product_Long_description" row="5"></textarea>
+                </div>
+                
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-12">
+                    <label >Product long Descreption</label>
+                    <textarea class="form-control" name="product_description" id="long_descr"></textarea>
+                </div>
+                
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-6">
+                    <label >Merchant User</label>
+                    <select name="added_by_mechant" class="form-control">
+                        {% for merchant_user in merchant_users %}
+                        <option value="{{ merchant_user.id }}">{{ merchant_user.auth_user_id.username  }}</option>
+
+                        {%  endfor  %}
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <label >Total in stock</label>
+                    <textarea class="form-control" name="in_stock_total" id="long_descr"></textarea>
+                </div>
+                
+            </div>
+            <hr>
+           <h5>Product media</h5> 
+           <hr>
+           <div class="media_div">
+           <div class="row media_div_row first_media">
+               <br>
+               <div class="col-lg-4">
+                   <label >Media type</label>
+                   <br>
+                   <select name="media_type[]" class="form-contro media_type">
+                       <option value="1">Image</option>
+                       <option value="2">Video</option>
+                   </select>
+               </div>
+               <div class="col-lg-4">
+                <label >Select  media</label>
+                <input type="file" name ="media_content[]" class="form-control select_media" />
+            </div>
+            <div class="col-lg-4">
+                <label">Preview</label>
+                <br>
+                <img src=""   style="width: 70%;display: none" class="img_preview">
+                <br>
+                <video src=""  style="width: 70%;display: none;" class="video_preview" controls>
+            </div>
+           </div>
+        </div>
+            <br><br>
+           <div class="row">
+               <div class="col-lg-6">
+                   <button class="btn btn-success btn-block add_media" type="button">ADD MEDIA CONTENT</button>
+
+               </div>
+               <div class="col-lg-6">
+                <button class="btn btn-danger btn-block remove_media" type="button">REMOVE MEDIA CONTENT</button>
+            </div>
+           </div>
+
+
+           <hr>
+           <h5>Product details</h5> 
+           <hr>
+           <div class="details_div">
+           <div class="row details_div_row first_details">
+               <br>
+               <div class="col-lg-6">
+                   <label >Title</label>
+                   <input type="text"  name="title_title[]" class="form-control  title_title" placeholder="tittle">
+               </div>
+               
+               <div class="col-lg-6">
+                <label >Details</label>
+                <input type="text" name ="title_detail[]" class="form-control  title_details" placeholder="Product_details"/>
+            </div>
+           </div>
+        </div>
+            <br><br>
+             <div class="row">
+               <div class="col-lg-6">
+                   <button class="btn btn-success btn-block add_details" type="button">ADD DETAILS</button>
+               </div>
+               <div class="col-lg-6">
+                <button class="btn btn-danger btn-block remove_details" type="button">REMOVE DETAILS</button>
+            </div>
+           </div>
+
+
+            <br>
+           <hr>
+           <h5>Product About</h5> 
+           <hr>
+           <div class="about_div">
+           <div class="row about_div_row first_about">
+               <br>
+               <div class="col-lg-12">
+                   <label >Title</label>
+                   <input type="text"  name="title_about[]" class="form-control  title_about" placeholder="tittle" class="col-lg-12">
+               </div>
+           </div>
+        </div>
+            <br><br>
+             <div class="row">
+               <div class="col-lg-6">
+                   <button class="btn btn-success btn-block add_about" type="button">ADD ABOUT DETAILS</button>
+               </div>
+               <div class="col-lg-6">
+                <button class="btn btn-danger btn-block remove_about" type="button">REMOVE ABOUT DETAILS</button>
+            </div>
+           </div>
+           <br>
+
+           <hr>
+           <h5>Product tags</h5> 
+           <hr>
+          <div class="row">
+              <div class="col-1g-12">
+                  <input type="text"   name="product_tags" data-role="tagsinput"  class="form-control">
+              </div>
+          </div>
+          <br>
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="progress mb-3" style="height: auto;">
+                <div class="progress-bar bg-warning" id="prodgressbar" role="progressbar " data-width="0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="0" style="width: 0%;height: 30px;border: 10px;display: none;">0%</div>
+            </div>
+              </div>
+          </div>
+          <br>
+          <div class="row" >
+              <button type="button" class="btn btn-primary btn-block submit_btn">ADD PRODUCTS</button>
+          </div>
+         </div> 
+         </form> 
+      </div>
+  </div>
+  </div>
+</section>
+</div>
+{% endblock page_content %}
+<!--ENDBLOCK FOR PAGE CONTENT-->
+
+
+
+<!--BLOCK FOR CUSTOM JS -->
+{% block custom_js %} 
+<script src="//cdn.tiny.cloud/1/lhy4rtd66hvpctuf9yhjpufnh9cccd1iy40m7cs2zglpj5wg/tinymce/5/tinymce.min.js" ></script>
+<script>
+    tinymce.init({
+      selector: '#long_descr',
+      plugins: 'emoticons a11ychecker advcode casechange export formatpainter linkchecker autolink lists media checklist media mediaembed pageembed permanentpen powerpaste table advtable tinymcespellchecker',
+      toolbar: 'emoticons media a11ycheck addcomment showcomments casechange checklist code export formatpainter pageembed permanentpen table',
+    });
+  </script>
+  <script>
+      //add media files
+
+      $(".add_media").click(function(){
+          var media_row=$(".first_media").clone();
+          media_row.removeClass("first_media");
+          media_row.replaceAll("src","")
+          media_row.find(".select_media").val("");
+          media_row.find(".img_preview").attr("src","").css({"border":"none"}).css({"border-radius":"0px"}).hide();
+          media_row.find(".video_preview").attr("src","").css({"border":"none"}).css({"border-radius":"0px"}).hide();
+          $(".media_div").append(media_row);
+      });
+      //end of adding  media files
+
+      //removing media files
+      $(".remove_media").click(function(){
+          if($(".media_div").find(".media_div_row").length>1){
+              $(".media_div").children().last().remove();
+          }
+      });
+     //end if removing media files
+
+     //addding product detail
+      $(".add_details").click(function(){
+          var media_row=$(".first_details").clone();
+          media_row.removeClass("first_details");
+          media_row.find(".title_title").val("");
+          media_row.find(".title_details").val("");
+          $(".details_div").append(media_row);
+      });
+     //end of adding product detail
+
+      //removing product detail
+      $(".remove_details").click(function(){
+          if($(".details_div").find(".details_div_row").length>1){
+              $(".details_div").children().last().remove();
+          }
+      });
+    // end of removing product detail
+
+
+    // adding product about 
+      $(".add_about").click(function(){
+          var media_row=$(".first_about").clone();
+          media_row.removeClass("first_about");
+          media_row.find(".title_title").val("");
+          media_row.find(".title_about").val("");
+          $(".about_div").append(media_row);
+      });
+      //end of adding product about
+
+      //ading product about
+      $(".remove_about").click(function(){
+          if($(".about_div").find(".about_div_row").length>1){
+              $(".about_div").children().last().remove();
+          }
+      });
+      //end of asdding product about
+
+      //displaying product preview
+      $(document).on("change",".select_media",function(){
+          var media_type=$(this).parents(".media_div_row").find(".media_type").val();
+          var img_preview=$(this).parents(".media_div_row").find(".img_preview");
+          var vid_preview=$(this).parents(".media_div_row").find(".video_preview");
+          showPreviewMedia(this,media_type,img_preview,vid_preview);
+      });
+        function showPreviewMedia(input,media_type,img_preview,video_preview){
+            if(input.files && input.files[0]){
+                var reader=new FileReader();
+                reader.onload=function(e){
+                    if(media_type=="1"){
+                        img_preview.attr("src",e.target.result);
+                        img_preview.show();
+                    img_preview.css({"border":"5px solid orange"});
+                    img_preview.css({"border-radius":"10px"});
+                    }
+                    if(media_type=="2"){
+                        video_preview.show();
+                        video_preview.css({"border":"5px solid orange"});
+                        video_preview.css({"border-radius":"10px"});
+                        video_preview.attr("src",e.target.result);
+                        video_preview.show();
+                        video_preview.load();
+                        video_preview.play();
+                        
+                    }
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+     //  end of displaying product preview
+
+     //form submit
+        $(".submit_btn").click(function(){
+            var form=new FormData($("#myform")[0]);
+            form.append("long_desc",tinyMCE.activateEditor.getContent());
+
+         // AJAX
+         var xhr=new XMLHttpRequest();
+         hxr.onreadystatechange=function(){
+             if(xhr.status==200){
+                 console.log(xhr.responseText);
+             }
+         }
+         xhr.open("POST","{% url 'product_view' %}",true)
+         $("#progressbar").show();
+
+         //UPDATNING PROGRESS BAR
+         xhr.upload.addEventListener("progress",function(ev){
+             if(ev.lengthComputable){
+                 var percentage=(ev.loaded/ev.total*100|0);
+                 $("percentage").css({"with":""+percentage+"%"}).text("Uploading .."+percentage+"%");
+                 console.log(percentage);
+             }
+         });
+
+         xhr.send(form);
+
+    })
+
+     //end of form submit   
+
+</script>
+<script src="//bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js">
+    
+</script>
+{% endblock custom_js %}
+<!--ENDBLOCK FOR CUSTOM JS-->

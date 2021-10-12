@@ -1,0 +1,278 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>
+    {% block title %}
+    {% endblock title %}
+
+  </title>
+
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="{% static '/admincss/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static '/admincss/modules/fontawesome/css/all.min.css' %}">
+
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="{% static '/admincss/jqvmap/dist/jqvmap.min.css' %}">
+  <link rel="stylesheet" href="{% static '/admincss/weather-icon/css/weather-icons.min.css' %}">
+  <link rel="stylesheet" href="{% static '/admincss/weather-icon/css/weather-icons-wind.min.css' %}">
+  <link rel="stylesheet" href="{% static '/admincss/summernote/summernote-bs4.css' %}">
+
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{% static '/admincss/css/style.css' %}">
+  <link rel="stylesheet" href="{% static '/admincss/css/components.css' %}">
+
+    {% block custom_css %}
+    {% endblock custom_css %}
+
+    <style>
+      ul.errorlist{
+        margin:0px;
+      }
+      .no-margin{
+        margin:0px;
+      }
+    </style>
+<!-- Start GA -->
+</head>
+
+<body>
+  <div id="app">
+    <div class="main-wrapper main-wrapper-1">
+      <div class="navbar-bg"></div>
+      <form class="form-inline mr-auto">
+        <ul class="navbar-nav mr-3">
+          <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+          <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
+        </ul>
+        <div class="search-element">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250" style="width: 250px;">
+          <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+          <div class="search-backdrop"></div>
+          <div class="search-result">
+            <div class="search-header">
+              Histories
+            </div>
+            <div class="search-item">
+              <a href="#">How to hack NASA using CSS</a>
+              <a href="#" class="search-close"><i class="fas fa-times"></i></a>
+            </div>
+            <div class="search-item">
+              <a href="#">Kodinger.com</a>
+              <a href="#" class="search-close"><i class="fas fa-times"></i></a>
+            </div>
+            <div class="search-item">
+              <a href="#">#Stisla</a>
+              <a href="#" class="search-close"><i class="fas fa-times"></i></a>
+            </div>
+            <div class="search-header">
+              Result
+            </div>
+            <div class="search-item">
+              <a href="#">
+                <img class="mr-3 rounded" width="30" src="assets/img/products/product-3-50.png" alt="product">
+                oPhone S9 Limited Edition
+              </a>
+            </div>
+            <div class="search-item">
+              <a href="#">
+                <img class="mr-3 rounded" width="30" src="assets/img/products/product-2-50.png" alt="product">
+                Drone X2 New Gen-7
+              </a>
+            </div>
+            <div class="search-item">
+              <a href="#">
+                <img class="mr-3 rounded" width="30" src="assets/img/products/product-1-50.png" alt="product">
+                Headphone Blitz
+              </a>
+            </div>
+            <div class="search-header">
+              Projects
+            </div>
+            <div class="search-item">
+              <a href="#">
+                <div class="search-icon bg-danger text-white mr-3">
+                  <i class="fas fa-code"></i>
+                </div>
+                Stisla Admin Template
+              </a>
+            </div>
+            <div class="search-item">
+              <a href="#">
+                <div class="search-icon bg-primary text-white mr-3">
+                  <i class="fas fa-laptop"></i>
+                </div>
+                Create a new Homepage Design
+              </a>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      {% include 'admintemplates/sidebar.html' with id=form.instance.id %}
+     
+      
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <div class="card card-statistic-2">
+                <div class="card-stats">
+                  <div class="card-stats-title">Order Statistics - 
+                    <div class="dropdown d-inline">
+                      <a class="font-weight-600 dropdown-toggle" data-toggle="dropdown" href="#" id="orders-month">August</a>
+                      <ul class="dropdown-menu dropdown-menu-sm">
+                        <li class="dropdown-title">Select Month</li>
+                        <li><a href="#" class="dropdown-item">January</a></li>
+                        <li><a href="#" class="dropdown-item">February</a></li>
+                        <li><a href="#" class="dropdown-item">March</a></li>
+                        <li><a href="#" class="dropdown-item">April</a></li>
+                        <li><a href="#" class="dropdown-item">May</a></li>
+                        <li><a href="#" class="dropdown-item">June</a></li>
+                        <li><a href="#" class="dropdown-item">July</a></li>
+                        <li><a href="#" class="dropdown-item active">August</a></li>
+                        <li><a href="#" class="dropdown-item">September</a></li>
+                        <li><a href="#" class="dropdown-item">October</a></li>
+                        <li><a href="#" class="dropdown-item">November</a></li>
+                        <li><a href="#" class="dropdown-item">December</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="card-stats-items">
+                    <div class="card-stats-item">
+                      <div class="card-stats-item-count">24</div>
+                      <div class="card-stats-item-label">Pending</div>
+                    </div>
+                    <div class="card-stats-item">
+                      <div class="card-stats-item-count">12</div>
+                      <div class="card-stats-item-label">Shipping</div>
+                    </div>
+                    <div class="card-stats-item">
+                      <div class="card-stats-item-count">23</div>
+                      <div class="card-stats-item-label">Completed</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-icon shadow-primary bg-primary">
+                  <i class="fas fa-archive"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Total Orders</h4>
+                  </div>
+                  <div class="card-body">
+                    59
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <div class="card card-statistic-2">
+                <div class="card-chart"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                  <canvas id="balance-chart" height="98" width="414" style="display: block; width: 414px; height: 98px;" class="chartjs-render-monitor"></canvas>
+                </div>
+                <div class="card-icon shadow-primary bg-primary">
+                  <i class="fas fa-dollar-sign"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Balance</h4>
+                  </div>
+                  <div class="card-body">
+                    $187,13
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <div class="card card-statistic-2">
+                <div class="card-chart"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                  <canvas id="sales-chart" height="98" width="414" style="display: block; width: 414px; height: 98px;" class="chartjs-render-monitor"></canvas>
+                </div>
+                <div class="card-icon shadow-primary bg-primary">
+                  <i class="fas fa-shopping-bag"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Sales</h4>
+                  </div>
+                  <div class="card-body">
+                    4,732
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section-header">
+            <h1>
+              {% block page_title %}
+                {% endblock page_title %}
+            </h1>
+          </div>
+          {% if messages %}
+          {% for message in messages  %}
+          {% if message.tags == "success" %}
+          <div class="alert alert-success">
+            {{message}}
+          </div>
+          {% endif %}
+          {% if message.tags == "error" %}
+          <div class="alert alert-danger">
+            {{ message}}
+          </div>
+          {% endif %}
+          {% endfor %}
+          {% endif %}
+          {% block page_content %}
+          {% endblock page_content %}
+      </div>
+      <footer class="main-footer">
+        <div class="footer-left">
+          Copyright &copy; 2021 <div class="bullet"></div> tradebay </a>
+        </div>
+        <div class="footer-right">
+          
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- General JS Scripts -->
+  <script src="{% static '/admincss/modules/jquery.min.js' %}"></script>
+  <script src="{% static '/admincss/modules/popper.js' %}"></script>
+  <script src="{% static '/admincss/modules/tooltip.js' %}"></script>
+  <script src="{% static '/admincss/modules/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static '/admincss/modules/nicescroll/jquery.nicescroll.min.js' %}"></script>
+  <script src="{% static '/admincss/modules/moment.min.js' %}"></script>
+  <script src="{% static '/admincss/js/stisla.js' %}"></script>
+  
+  <!-- JS Libraies -->
+  <script src="{% static '/admincss/modules/simple-weather/jquery.simpleWeather.min.js' %}"></script>
+  <script src="{% static '/admincss/modules/chart.min.js' %}"></script>
+  <script src="{% static '/admincss/modules/jqvmap/dist/jquery.vmap.min.js' %}"></script>
+  <script src="{% static '/admincss/modules/jqvmap/dist/maps/jquery.vmap.world.js' %}"></script>
+  <script src="{% static '/admincss/modules/summernote/summernote-bs4.js' %}"></script>
+  <script src="{% static '/admincss/modules/chocolat/dist/js/jquery.chocolat.min.js' %}"></script>
+
+  <!-- Page Specific JS File -->
+  <script src="{% static '/admincss/js/page/index-0.js' %}"></script>
+  
+  <!-- Template JS File -->
+  <script src="{% static '/admincss/js/scripts.js' %}"></script>
+  <script src="{% static '/admincss/js/custom.js' %}"></script>
+
+    {% block custom_js %}
+    {% endblock custom_js %}
+
+  <script>
+    document.getElementById("title").onkeyup=function(){
+      document.getElementById("url_slug").value=document.getElementById("title").value.toLowerCase().replace(" ","-");
+    }
+  </script>
+
+</body>
+</html>
